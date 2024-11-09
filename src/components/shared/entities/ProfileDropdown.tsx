@@ -42,7 +42,7 @@ export const ProfileDropdown = ({ firstName, lastName, email }: any) => {
       key: '3',
       label: 'text.logout',
       icon: <LogoutOutlined />,
-      danger: true,
+      // danger: true,
     },
   ];
 
