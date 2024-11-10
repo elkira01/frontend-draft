@@ -1,5 +1,5 @@
 import { Fragment } from 'react';
-import { ControlMenu } from 'app/(dashboard)/_components/controls/ControlMenu';
+import { ControlMenu } from '@/app/(dashboard)/_components/controls/ControlMenu';
 import { Col, Row } from 'antd';
 import { BoardTimeline } from '@/app/(dashboard)/_components/BoardTimeline';
 import { DesignToolControl } from '@/app/(dashboard)/_components/controls/DesignToolControl';
