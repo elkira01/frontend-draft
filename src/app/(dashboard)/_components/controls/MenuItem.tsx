@@ -15,8 +15,9 @@ const SC_MenuItem = styled.div<{ active: boolean }>`
 
   &:hover {
     background: #222222;
-    //margin: 1px;
   }
+
+  transition: all 300ms ease-in-out;
 `;
 export const MenuItem = ({
   icon,
