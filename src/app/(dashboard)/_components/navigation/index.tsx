@@ -1,25 +1,18 @@
 'use client';
 
-import { Fragment, useEffect } from 'react';
-import { MenuProps } from 'antd';
-import { SC_Menu } from '@/app/(dashboard)/_components/navigation/styled';
+import { Fragment, useEffect, useState } from 'react';
 import { FoldVertical, Layers, Map, MessageSquare, Users } from 'lucide-react';
+import { MenuItem } from '@/app/(dashboard)/_components/navigation/MenuItem';
 
-const menuGroup1: MenuProps['items'] = [
-  // { key: '-', label: '', icon: '' },
+const menuGroup = [
   { key: 'layers', label: 'Layers', icon: <Layers /> },
   { key: 'map', label: 'Base map', icon: <Map /> },
   { key: 'group', label: 'Group', icon: <Users /> },
-  // Add more menu items as needed
+  { key: 'chat', label: 'Chatroom', icon: <MessageSquare /> },
+  { key: 'timeline', label: 'Timeline', icon: <FoldVertical /> },
 ];
 
-const menuGroup2: MenuProps['items'] = [
-  { key: 'chat', label: 'Chat', icon: <MessageSquare /> },
-  // { key: 'assistant', label: 'AI Assistant', icon: <BotMessageSquare /> },
-  { key: 'timeline', label: 'Timeline', icon: <FoldVertical /> },
-  // Add more menu items as needed
-];
-export function Navigation() {
+export function ControlMenu() {
   useEffect(() => {
     if (typeof window !== undefined) {
       const list = document.querySelectorAll('.ant-menu-item'); // dangerously remove tag style attributes
@@ -29,14 +22,32 @@ export function Navigation() {
 
   return (
     <Fragment>
-      <div className='w-full absolute left-1 mt-1.5 flex-col justify-between rounded-sm bg-white p-1'>
-        <div>
-          <SC_Menu mode='inline' items={menuGroup1} />
-        </div>
-        <div>
-          <SC_Menu mode='inline' items={menuGroup2} />
-        </div>
+      <div className='w-full absolute left-1 mt-1.5 flex justify-between bg-transparent'>
+        <Navigation menuGroup={menuGroup} />
+        <div></div>
       </div>
     </Fragment>
   );
 }
+
+export const Navigation = ({ menuGroup }: any) => {
+  const [active, setActive] = useState<any>('');
+  const handleMenu = (index: any, callback: Function) => {
+    setActive(index);
+    callback();
+  };
+  return (
+    <nav className='menu flex-col justify-between items-center rounded-sm px-1 bg-[#191919]'>
+      {menuGroup?.map((item: any, index: any) => (
+        <MenuItem
+          className='w-[75px] h-[75px] my-1'
+          icon={item.icon}
+          label={item.label}
+          onClick={() => handleMenu(index, () => console.log('clicked', item.label))}
+          isActive={active === index}
+          key={item.key}
+        />
+      ))}
+    </nav>
+  );
+};
