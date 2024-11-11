@@ -1,28 +1,8 @@
 'use client';
 
-import { FoldVertical, Layers, Map, MessageSquare, Users } from 'lucide-react';
-import { Fragment, useState } from 'react';
-import styled from 'styled-components';
-import Tabs from '@/components/base/Tabs/Tabs';
+import { useState } from 'react';
 import { Tab, TabGroup, TabList, TabPanel, TabPanels } from '@headlessui/react';
-
-const SC_Tabs = styled(Tabs)`
-  background-color: white;
-
-  .tablist {
-    button {
-      background-color: gray;
-    }
-  }
-`;
-
-const toolsControl = [
-  { key: '', label: '', icon: <Layers /> },
-  { key: '', label: '', icon: <Map /> },
-  { key: '', label: '', icon: <Users /> },
-  { key: '', label: '', icon: <MessageSquare /> },
-  { key: '', label: '', icon: <FoldVertical /> },
-];
+import { FoldVertical, Layers, Map, MessageSquare, Users } from 'lucide-react';
 
 const tabs: any[] = [
   {
@@ -36,6 +16,7 @@ const tabs: any[] = [
     content: <div>Base map</div>,
   },
 ];
+
 export function DesignToolControl() {
   const [selected, setSelected] = useState(tabs[0]?.key);
 
