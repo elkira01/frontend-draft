@@ -32,7 +32,7 @@ export default function WebsiteLayout({
           </Col>
         </Row>
       </Header>
-      <Content style={{ backgroundColor: '#333333' }}>{children}</Content>
+      <Content style={{ backgroundColor: '#e0e0e0' }}>{children}</Content>
       <FloatButton
         icon={<AliwangwangOutlined style={{ fontSize: '1.5rem' }} />}
         style={{

@@ -1,3 +1,5 @@
+'use client';
+
 import { Fragment } from 'react';
 import { ControlMenu } from '@/app/(dashboard)/_components/controls/ControlMenu';
 import { Col, Row } from 'antd';
